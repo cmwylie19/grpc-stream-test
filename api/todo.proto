@@ -1,0 +1,25 @@
+syntax = "proto3";
+package todo;
+
+option go_package="/api";
+
+service Todo {
+    rpc GetTasksStream (GetTasksRequest) returns (stream Task) {} 
+    rpc GetTasks (GetTasksRequest) returns (GetTasksReply) {} 
+    rpc CreateTask (CreateTaskRequest) returns (Task) {}
+}
+
+message CreateTaskRequest {
+    string name = 1;
+}
+
+message GetTasksRequest {}
+
+message Task {
+    string name = 1;
+    string created = 2;
+}
+
+message GetTasksReply {
+    repeated Task task = 1;
+}

@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: httpbin
+  name: httpbin
+  namespace: default
+spec:
+  ports:
+    - port: 8080
+      name: http
+  selector:
+    app: httpbin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httpbin
+  name: httpbin
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: httpbin
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: httpbin
+    spec:
+      serviceAccountName: httpbin
+      containers:
+        - image: docker.io/cmwylie19/httpbin:latest
+          name: httpbin
+          ports:
+            - containerPort: 8080
+              name: http
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: httpbin

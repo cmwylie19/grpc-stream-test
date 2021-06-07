@@ -1,0 +1,21 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: grpc-test
+  namespace: gloo-system
+spec:
+  virtualHost:
+    routes:
+    - matchers:
+      - prefix: /
+      options:
+        retries:
+          numRetries: 3
+          perTryTimeout: 15s
+          retryOn: connect-failure
+        timeout: 45s
+      routeAction:
+        single:
+          upstream:
+            name: default-grpc-tests-8080
+            namespace: gloo-system
