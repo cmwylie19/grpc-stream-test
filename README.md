@@ -18,7 +18,8 @@ kubectl apply -f k8s/grpc-tests.yaml
 ```
 
 **Create a virtual service in Gloo Edge**
-```
+
+```bash
 kubectl apply -f k8s/vs-grpc-test.yaml
 ```
 
