@@ -12,7 +12,8 @@ _This repo contains a gRPC application for testing with Envoy. The gRPC Server s
 
 ## Gloo Edge
 **Deploy grpc-tests app**   
-```
+
+```bash
 kubectl apply -f k8s/grpc-tests.yaml
 ```
 
