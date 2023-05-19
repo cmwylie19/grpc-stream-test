@@ -1,5 +1,7 @@
 # gRPC Tests
-_This repo contains a gRPC application for testing with Envoy. The gRPC Server streaming endpoint sends one task into the stream per second to test timeout and keepAlive configurations._   
+_This repo contains a gRPC application for testing with Envoy. The gRPC Server streaming endpoint sends one task into the stream per second to test timeout and keepAlive configurations._  
+
+
 ![Solo.io](https://www.solo.io/wp-content/uploads/2019/09/logo-w.svg)
 
 ## Tests
