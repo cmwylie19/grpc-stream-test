@@ -25,7 +25,8 @@ kubectl apply -f k8s/vs-grpc-test.yaml
 
 **Apply access logging configuration to the gateway/gateway-proxy for logs (Optional)**   
 (I am testing on AWS, if you are using GKE, set `useProxyProto: false` on line 35)
-```
+
+```bash
 kubectl apply -f k8s/gateway-gateway-proxy.yaml
 ```
 
